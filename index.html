@@ -5,434 +5,617 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Coder Arda</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root {
+    --bg-color: #03030c;
+    --primary: #00f0ff;
+    --primary-glow: rgba(0, 240, 255, 0.3);
+    --accent: #ff007f;
+    --accent-glow: rgba(255, 0, 127, 0.3);
+    --text-main: #e2e8f0;
+    --text-muted: #8a99ad;
+    --card-bg: rgba(10, 10, 25, 0.7);
+    --border-color: rgba(0, 240, 255, 0.15);
 }
 
-body{
-    font-family:'Poppins',sans-serif;
-    background:#050505;
-    color:#fff;
-    overflow-x:hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-canvas{
-    position:fixed;
-    inset:0;
-    z-index:-1;
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow-x: hidden;
+    position: relative;
 }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+
+canvas#matrix-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.15;
 }
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:50px;
-    flex-wrap:wrap;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(3, 3, 12, 0.6);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary-glow);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+/* Hero Section */
+.hero {
+    min-height: calc(100vh - 81px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
     padding: 40px 0;
 }
 
-.profile{
-    flex:1;
-    min-width:300px;
+.profile-side {
+    display: flex;
+    flex-direction: column;
 }
 
-.profile h1{
-    font-family:'Orbitron',sans-serif;
-    font-size:4rem;
-    color:#00e5ff;
-    text-shadow:0 0 20px #00e5ff;
+.badge {
+    align-self: flex-start;
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px var(--primary-glow);
 }
 
-.profile h2{
-    margin-top:15px;
-    font-size:1.2rem;
-    color:#b8b8b8;
+.profile-side h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #fff 30%, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.profile p{
-    margin-top:20px;
-    line-height:1.8;
-    color:#ddd;
+.profile-side h2 {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 25px;
 }
 
-.btns{
-    margin-top:30px;
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+.profile-side p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 35px;
 }
 
-.btn{
-    padding:14px 28px;
-    border:2px solid #00e5ff;
-    border-radius:14px;
-    text-decoration:none;
-    color:#fff;
-    transition:.3s;
-    font-weight:600;
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(10px);
+.btn-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.btn:hover{
-    background:#00e5ff;
-    color:#000;
-    box-shadow:0 0 25px #00e5ff;
+.btn-cyber {
+    position: relative;
+    padding: 16px 32px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    letter-spacing: 1px;
 }
 
-.terminal{
-    flex:1;
-    min-width:300px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(0,229,255,.3);
-    border-radius:20px;
-    padding:25px;
-    backdrop-filter:blur(12px);
-    box-shadow:0 0 30px rgba(0,229,255,.15);
+.btn-primary {
+    background: var(--primary);
+    color: #000;
+    border: none;
+    box-shadow: 0 0 20px var(--primary-glow);
 }
 
-.term-head{
-    display:flex;
-    gap:10px;
-    margin-bottom:20px;
+.btn-primary:hover {
+    background: #fff;
+    box-shadow: 0 0 30px rgba(255,255,255,0.6);
+    transform: translateY(-2px);
 }
 
-.dot{
-    width:14px;
-    height:14px;
-    border-radius:50%;
+.btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    box-shadow: inset 0 0 10px rgba(255, 0, 127, 0.1);
 }
 
-.red{background:#ff5f56;}
-.yellow{background:#ffbd2e;}
-.green{background:#27c93f;}
-
-#typing{
-    font-family:monospace;
-    color:#00ff88;
-    line-height:1.8;
-    min-height:220px;
-    white-space:pre-line;
-    word-break: break-word;
+.btn-secondary:hover {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 25px var(--accent-glow);
+    transform: translateY(-2px);
 }
 
-section{
-    padding:90px 0;
+/* Terminal */
+.terminal-side {
+    position: relative;
 }
 
-.title{
-    text-align:center;
-    margin-bottom:50px;
+.terminal-box {
+    background: #050510;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(0, 240, 255, 0.05);
+    overflow: hidden;
 }
 
-.title h3{
-    font-family:'Orbitron',sans-serif;
-    font-size:2.2rem;
-    color:#00e5ff;
-    text-shadow:0 0 15px #00e5ff;
+.terminal-header {
+    background: rgba(255,255,255,0.03);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:25px;
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
 }
 
-.card{
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:20px;
-    padding:28px;
-    transition:.3s;
-    backdrop-filter:blur(10px);
+.t-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    border-color:#00e5ff;
-    box-shadow:0 0 25px rgba(0,229,255,.35);
+.t-red { background: #ff5f56; }
+.t-yellow { background: #ffbd2e; }
+.t-green { background: #27c93f; }
+
+.terminal-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
-.card h4{
-    color:#00e5ff;
-    margin-bottom:18px;
-    font-size:1.1rem;
+.terminal-body {
+    padding: 25px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    min-height: 320px;
+    color: var(--text-main);
+    line-height: 1.8;
 }
 
-.card ul{
-    list-style:none;
+.t-prompt { color: var(--primary); }
+.t-tech { color: #fff; }
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background: var(--primary);
+    animation: blink 0.8s infinite;
+    vertical-align: middle;
+    margin-left: 4px;
 }
 
-.card li{
-    margin:10px 0;
-    color:#ddd;
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
-.tech{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
+/* Bölümler */
+section {
+    padding: 100px 0;
 }
 
-.tech span{
-    padding:12px 22px;
-    border:1px solid #00e5ff;
-    border-radius:999px;
-    background:rgba(0,229,255,.08);
-    transition:.3s;
+.sec-title {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
-.tech span:hover{
-    background:#00e5ff;
-    color:#000;
-    box-shadow:0 0 20px #00e5ff;
+.sec-title h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
 }
 
-footer{
-    text-align:center;
-    padding:50px 20px;
-    border-top:1px solid rgba(255,255,255,.1);
-    color:#aaa;
+.sec-title h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    margin: 15px auto 0;
+    box-shadow: 0 0 10px var(--primary);
 }
 
-footer a{
-    color:#00e5ff;
-    text-decoration:none;
+/* Grid Kartlar */
+.grid-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
 }
 
+.card-cyber {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 35px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
 
-@media(max-width:768px){
-    .hero{
-        padding-top:80px;
+.card-cyber:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(0, 240, 255, 0.1);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.card-cyber h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.card-cyber ul {
+    list-style: none;
+}
+
+.card-cyber li {
+    margin-bottom: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.card-cyber li::before {
+    content: '⚡';
+    margin-right: 10px;
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+/* Tech Stack */
+.tech-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tech-badge {
+    padding: 12px 24px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 30px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    border-color: var(--accent);
+    background: rgba(255, 0, 127, 0.05);
+    color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Footer */
+footer {
+    background: #020208;
+    border-top: 1px solid var(--border-color);
+    padding: 60px 0 30px;
+    text-align: center;
+}
+
+.footer-content p {
+    color: var(--text-muted);
+}
+
+.footer-content .insta-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer-content .insta-link:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.2);
+}
+
+/* Mobil / Responsive */
+@media (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 50px;
         text-align: center;
-    }
-
-    .profile h1{
-        font-size:2.5rem;
-    }
-
-    .profile h2 {
-        font-size: 1rem;
-    }
-
-    .btns {
-        justify-content: center;
-    }
-
-    .title h3{
-        font-size:1.8rem;
+        padding-top: 60px;
     }
     
-    .terminal {
-        width: 100%;
-        min-width: 100%;
-    }
+    .badge { align-self: center; }
+    .profile-side h1 { font-size: 3rem; }
+    .btn-group { justify-content: center; }
+}
+
+@media (max-width: 576px) {
+    .profile-side h1 { font-size: 2.3rem; }
+    .sec-title h3 { font-size: 1.8rem; }
+    .terminal-body { font-size: 0.85rem; padding: 15px; }
 }
 </style>
 </head>
-
 <body>
 
-<canvas id="bg"></canvas>
+<canvas id="matrix-bg"></canvas>
+
+<header>
+    <div class="container nav-container">
+        <a href="#" class="logo">CODER <span>ARDA</span></a>
+    </div>
+</header>
 
 <div class="container">
-
-<section class="hero">
-    <div class="profile">
-        <h1>CODER ARDA</h1>
-        <h2>Software Developer • Industrial Automation • Cyber Security</h2>
-        <p>
-            Web geliştirme, Programlama, Gömülü Sistemler, Haberleşme, PLC/SCADA otomasyonu ve etik siber gelecek alanlarında çalışan geliştirici.
-            Güvenli, hızlı ve modern sistemler üretmeye odaklanıyorum.
-        </p>
-        <div class="btns">
-            <a class="btn" href="#skills">Yetenekler</a>
-            <a class="btn" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/coder_arda?igsh=Z2d1NTMxdWdja2k3">
-                Instagram
-            </a>
-        </div>
-    </div>
-
-    <div class="terminal">
-        <div class="term-head">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
-        </div>
-        <div id="typing"></div>
-    </div>
-</section>
-
-<section id="skills">
-    <div class="title">
-        <h3>UZMANLIK ALANLARI</h3>
-    </div>
-
-    <div class="grid">
-        <div class="card">
-            <h4>WEB DEVELOPMENT</h4>
-            <ul>
-                <li>PHP</li>
-                <li>HTML5</li>
-                <li>CSS3</li>
-            </ul>
+    <section class="hero">
+        <div class="profile-side">
+            <div class="badge">&lt;HELLO WORLD /&gt;</div>
+            <h1>CODER ARDA</h1>
+            <h2>Software Developer • Industrial Automation • Cyber Security</h2>
+            <p>
+                Sistem mimarileri oluşturma, endüstriyel otomasyon süreçleri yönetimi ve siber güvenlik testleri konularında profesyonel çözümler üretiyorum. Güvenli kod tabanı ve kararlı otomasyon altyapılarını bir araya getiren geleceğin sistemlerine odaklıyım.
+            </p>
+            <div class="btn-group">
+                <a class="btn-cyber btn-primary" href="#skills">Yetenekler</a>
+                <a class="btn-cyber btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/coder_arda?igsh=Z2d1NTMxdWdja2k3">
+                    Instagram
+                </a>
+            </div>
         </div>
 
-        <div class="card">
-            <h4>PROGRAMMING</h4>
-            <ul>
-                <li>Java</li>
-                <li>C#</li>
-            </ul>
+        <div class="terminal-side">
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <div class="t-dot t-red"></div>
+                        <div class="t-dot t-yellow"></div>
+                        <div class="t-dot t-green"></div>
+                    </div>
+                    <div class="terminal-title">skills.sh — bash</div>
+                </div>
+                <div class="terminal-body" id="term-typing"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="sec-title">
+            <h3>UZMANLIK ALANLARI</h3>
         </div>
 
-        <div class="card">
-            <h4>INDUSTRIAL AUTOMATION</h4>
-            <ul>
-                <li>PLC</li>
-                <li>RTU</li>
-                <li>SCADA</li>
-                <li>HMI</li>
-                <li>Arduino</li>
-            </ul>
+        <div class="grid-skills">
+            <div class="card-cyber">
+                <div class="card-icon">🌐</div>
+                <h4>WEB DEVELOPMENT</h4>
+                <ul>
+                    <li>PHP (Backend Logic)</li>
+                    <li>HTML5 & CSS3 (Semantic UI)</li>
+                    <li>Modern API Integration</li>
+                </ul>
+            </div>
+
+            <div class="card-cyber">
+                <div class="card-icon">💻</div>
+                <h4>PROGRAMMING</h4>
+                <ul>
+                    <li>Java (Core & OOP)</li>
+                    <li>C# (Desktop & Services)</li>
+                    <li>Algoritma Optimizasyonu</li>
+                </ul>
+            </div>
+
+            <div class="card-cyber">
+                <div class="card-icon">⚙️</div>
+                <h4>INDUSTRIAL AUTOMATION</h4>
+                <ul>
+                    <li>PLC / RTU Programming</li>
+                    <li>SCADA / HMI Interface</li>
+                    <li>Arduino & IoT Prototyping</li>
+                </ul>
+            </div>
+
+            <div class="card-cyber">
+                <div class="card-icon">🛡️</div>
+                <h4>CYBER SECURITY</h4>
+                <ul>
+                    <li>Ethical Hacking & Pentest</li>
+                    <li>Vulnerability Assessment</li>
+                    <li>Network Security Audits</li>
+                </ul>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <h4>CYBER SECURITY</h4>
-            <ul>
-                <li>Ethical Hacking</li>
-                <li>Security Testing</li>
-                <li>Vulnerability Assessment</li>
-            </ul>
+    <section>
+        <div class="sec-title">
+            <h3>TECH STACK</h3>
         </div>
-    </div>
-</section>
-
-<section>
-    <div class="title">
-        <h3>TECH STACK</h3>
-    </div>
-    <div class="tech">
-        <span>PHP</span>
-        <span>HTML5</span>
-        <span>CSS3</span>
-        <span>Java</span>
-        <span>C#</span>
-        <span>PLC</span>
-        <span>RTU</span>
-        <span>SCADA</span>
-        <span>HMI</span>
-        <span>Arduino</span>
-        <span>Cyber Security</span>
-    </div>
-</section>
-
-<footer>
-    <p><strong>CODER ARDA</strong> — Software Developer | Industrial Automation | Cyber Security</p>
-    <p>
-        Instagram:
-        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/coder_arda?igsh=Z2d1NTMxdWdja2k3">
-            @coder_arda
-        </a>
-    </p>
-    <p style="margin-top:10px;">© 2026 All Rights Reserved</p>
-</footer>
-
+        <div class="tech-flex">
+            <div class="tech-badge">PHP</div>
+            <div class="tech-badge">HTML5</div>
+            <div class="tech-badge">CSS3</div>
+            <div class="tech-badge">Java</div>
+            <div class="tech-badge">C#</div>
+            <div class="tech-badge">PLC</div>
+            <div class="tech-badge">RTU</div>
+            <div class="tech-badge">SCADA</div>
+            <div class="tech-badge">HMI</div>
+            <div class="tech-badge">Arduino</div>
+            <div class="tech-badge">Cyber Security</div>
+        </div>
+    </section>
 </div>
 
+<footer>
+    <div class="container footer-content">
+        <p><strong>CODER ARDA</strong> — Software Developer | Industrial Automation | Cyber Security</p>
+        <p style="margin-top: 10px;">
+            İletişim: 
+            <a class="insta-link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/coder_arda?igsh=Z2d1NTMxdWdja2k3">
+                @coder_arda
+            </a>
+        </p>
+        <div class="copyright">© 2026 All Rights Reserved</div>
+    </div>
+</footer>
+
 <script>
-const lines = [
-    '> whoami',
-    'Coder Arda',
-    '',
-    '> role',
-    'Software Developer',
-    'Industrial Automation',
-    'Cyber Security Researcher',
-    '',
-    '> tech',
-    'PHP • HTML • CSS • Java • C#',
-    'PLC • RTU • SCADA • HMI • Arduino',
+// Sadeleştirilmiş Yetenek Terminali
+const skills = [
+    'PHP', 'HTML5', 'CSS3', 'Java', 'C#', 
+    'PLC', 'RTU', 'SCADA', 'HMI', 'Arduino', 'Cyber Security'
 ];
 
-let i = 0;
-const target = document.getElementById('typing');
+const termBody = document.getElementById('term-typing');
+let index = 0;
 
-function type(){
-    if(i < lines.length){
+function typeSkills() {
+    if (index < skills.length) {
+        const line = document.createElement('div');
+        line.innerHTML = `<span class="t-prompt">&gt;</span> <span class="t-tech"></span>`;
+        termBody.appendChild(line);
         
-        const lineElement = document.createElement('div');
-        lineElement.textContent = lines[i] === '' ? '\u00A0' : lines[i]; 
-        target.appendChild(lineElement);
-        
-        i++;
-        setTimeout(type, 250);
+        const techSpan = line.querySelector('.t-tech');
+        let charIndex = 0;
+        const currentText = skills[index];
+
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        line.appendChild(cursor);
+
+        function typeChar() {
+            if (charIndex < currentText.length) {
+                techSpan.textContent += currentText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeChar, 80);
+            } else {
+                cursor.remove();
+                index++;
+                setTimeout(typeSkills, 200);
+            }
+        }
+        typeChar();
+    } else {
+        // En son satırda sabit yanıp sönen imleç bırakır
+        const finalLine = document.createElement('div');
+        finalLine.innerHTML = `<span class="t-prompt">&gt;</span> <span class="cursor"></span>`;
+        termBody.appendChild(finalLine);
     }
 }
-type();
+setTimeout(typeSkills, 500);
 
-
-const canvas = document.getElementById('bg');
+// Matrix Arka Plan
+const canvas = document.getElementById('matrix-bg');
 const ctx = canvas.getContext('2d');
 
-function initCanvas() {
+function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
-initCanvas();
+resizeCanvas();
 
-let stars = [];
-function createStars() {
-    stars = [];
-    for(let i=0; i<120; i++){
-        stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 2,
-            v: Math.random() * 0.5 + 0.2
-        });
+const chars = "0101010101ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const alphabet = chars.split("");
+const fontSize = 16;
+let columns = canvas.width / fontSize;
+let rainDrops = [];
+
+function initRainDrops() {
+    columns = canvas.width / fontSize;
+    rainDrops = [];
+    for (let x = 0; x < columns; x++) { rainDrops[x] = 1; }
+}
+initRainDrops();
+
+function drawMatrix() {
+    ctx.fillStyle = 'rgba(3, 3, 12, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#00f0ff';
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet[Math.floor(Math.random() * alphabet.length)];
+        ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+        if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) { rainDrops[i] = 0; }
+        rainDrops[i]++;
     }
 }
-createStars();
+setInterval(drawMatrix, 30);
 
-function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle='#00e5ff';
-
-    stars.forEach(s=>{
-        ctx.beginPath();
-        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-        ctx.fill();
-
-        s.y += s.v;
-
-        if(s.y > canvas.height){
-            s.y = 0;
-            s.x = Math.random()*canvas.width;
-        }
-    });
-
-    requestAnimationFrame(animate);
-}
-animate();
-
-
-window.addEventListener('resize',()=>{
-    initCanvas();
-    createStars(); 
+window.addEventListener('resize', () => {
+    resizeCanvas();
+    initRainDrops();
 });
 </script>
 
