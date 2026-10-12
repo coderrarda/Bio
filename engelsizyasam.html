@@ -1,0 +1,1466 @@
+Viewed index.html:1-250
+Ran command: `powershell -Command "Select-String -Path 'C:\Users\dostd\.gemini\antigravity\scratch\tid-translator\website\index.html' -Pattern 'AIza|api_key|apikey|secret|key\s*=\s*[''\""][A-Za-z0-9_-]{20,}' -CaseSensitive:$false"`
+Ran command: `powershell -Command "Select-String -Path 'C:\Users\dostd\.gemini\antigravity\scratch\tid-translator\website\index.html' -Pattern 'AIza' "`
+Viewed index.html:250-650
+Viewed index.html:800-1150
+Viewed index.html:1150-1452
+
+İşte projenin **tüm detaylarını, Google Gemini'nin rolünü, 3D kinematik matematik modellerini, interaktif simülatörünü, 39 kelimelik TİD sözlüğünü ve Arda Dostdoğru profilini** içeren, **Mobil + PC uyumlu**, tek parça ve **içinde hiçbir API anahtarı barındırmayan** eksiksiz `index.html` kodu:
+
+> [!NOTE]
+> Bu dosya aynı zamanda bilgisayarınızda hazır olarak kayıtlıdır:  
+> [`C:\Users\dostd\.gemini\antigravity\scratch\tid-translator\website\index.html`](file:///C:/Users/dostd/.gemini/antigravity/scratch/tid-translator/website/index.html)
+
+```html
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>TİD Çevirmen | Türk İşaret Dili Yapay Zeka Çevirmeni - Arda Dostdoğru</title>
+  <meta name="description" content="Mobil ve PC uyumlu, kamera üzerinden Türk İşaret Dili (TİD) hareketlerini 3D el kinematiği ve hibrit yapay zeka ile anında doğal Türkçe cümlelere ve sese dönüştüren yeni nesil erişilebilirlik projesi.">
+  <meta name="author" content="Arda Dostdoğru">
+  <meta name="theme-color" content="#070a12">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#070a12',
+              card: 'rgba(13, 20, 36, 0.75)',
+              emerald: '#10b981',
+              sky: '#38bdf8',
+              indigo: '#6366f1'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #070a12;
+      --bg-card: rgba(13, 20, 36, 0.78);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --primary: #10b981;
+      --primary-glow: rgba(16, 185, 129, 0.35);
+      --accent: #38bdf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Ambient Glowing Orbs - Responsive Blur */
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.16;
+      animation: floatOrb 22s ease-in-out infinite alternate;
+    }
+    .glow-orb-1 { width: clamp(300px, 45vw, 600px); height: clamp(300px, 45vw, 600px); background: #10b981; top: -100px; left: -100px; }
+    .glow-orb-2 { width: clamp(320px, 45vw, 650px); height: clamp(320px, 45vw, 650px); background: #38bdf8; top: 40%; right: -150px; animation-delay: -8s; }
+    .glow-orb-3 { width: clamp(280px, 40vw, 550px); height: clamp(280px, 40vw, 550px); background: #6366f1; bottom: 5%; left: 5%; animation-delay: -15s; }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, 60px) scale(1.15); }
+    }
+
+    /* Glassmorphism Cards */
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: clamp(16px, 2.5vw, 24px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (hover: hover) {
+      .glass-card:hover {
+        border-color: rgba(255, 255, 255, 0.18);
+        transform: translateY(-4px);
+        box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    /* Gradient Typography */
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 45%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Adaptive Responsive Phone Mockup */
+    .phone-mockup {
+      width: 100%;
+      max-width: 320px;
+      height: 620px;
+      background: #090e18;
+      border: 8px solid #1e293b;
+      border-radius: 44px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 50px rgba(16, 185, 129, 0.15);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .phone-mockup {
+        max-width: 330px;
+        height: 650px;
+        border-width: 10px;
+        border-radius: 48px;
+      }
+    }
+
+    .phone-notch {
+      width: 110px;
+      height: 20px;
+      background: #1e293b;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 30;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .phone-camera-lens { width: 8px; height: 8px; background: #0f172a; border-radius: 50%; }
+
+    /* Live Pulse Indicator */
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #10b981;
+      display: inline-block;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulseGreen 1.8s infinite;
+    }
+    @keyframes pulseGreen {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      box-shadow: 0 8px 20px -4px var(--primary-glow);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .btn-primary:active { transform: scale(0.97); }
+    @media (hover: hover) {
+      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 25px -4px rgba(16, 185, 129, 0.5); }
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .btn-secondary:active { transform: scale(0.97); }
+    @media (hover: hover) {
+      .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); transform: translateY(-2px); }
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: #090e1a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #38bdf8;
+      overflow-x: auto;
+    }
+
+    /* Comparison Table Responsive Styling */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: left; }
+    th { padding: 14px 16px; font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    td { padding: 15px 16px; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+    /* Mobile Navigation Drawer */
+    #mobileMenu {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
+    #mobileMenu.hidden-drawer {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    #mobileMenu.open-drawer {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+  </style>
+</head>
+
+<body class="relative">
+
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+  <div class="glow-orb glow-orb-3"></div>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 1. RESPONSIVE NAVIGATION BAR (PC & MOBİL) -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#070a12]/90 border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 text-decoration-none group">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 p-[1px] shadow-lg shadow-emerald-500/20">
+          <div class="w-full h-full bg-[#0d1424] rounded-[11px] flex items-center justify-center">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
+              <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"></path>
+              <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path>
+              <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <span class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            TİD Çevirmen <span class="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20">AI</span>
+          </span>
+          <span class="text-[11px] text-slate-400 block -mt-1 font-medium">Biyomekanik TİD Köprüsü</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#hakkinda" class="hover:text-emerald-400 transition-colors">Vizyon</a>
+        <a href="#mimari" class="hover:text-emerald-400 transition-colors">3 Katmanlı Mimari</a>
+        <a href="#gemini-rolu" class="hover:text-emerald-400 transition-colors">Gemini'nin Rolü</a>
+        <a href="#kinematik" class="hover:text-emerald-400 transition-colors">Kinematik Model</a>
+        <a href="#demo" class="hover:text-emerald-400 transition-colors">Simülatör</a>
+        <a href="#karsilastirma" class="hover:text-emerald-400 transition-colors">Karşılaştırma</a>
+        <a href="#isaretler" class="hover:text-emerald-400 transition-colors">Sözlük</a>
+        <a href="#gelistirici" class="hover:text-emerald-400 transition-colors">Geliştirici</a>
+      </nav>
+
+      <!-- Desktop CTA & Mobile Hamburger -->
+      <div class="flex items-center gap-3">
+        <a href="#demo" class="hidden sm:inline-flex btn-primary text-xs sm:text-sm py-2.5 px-4 sm:px-5">
+          <span>Canlı Test Et</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="menuToggleBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white focus:outline-none" aria-label="Menüyü Aç">
+          <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden-drawer lg:hidden fixed top-20 left-0 w-full bg-[#090e1a]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 shadow-2xl">
+      <div class="flex flex-col space-y-3 font-semibold text-sm text-slate-200">
+        <a href="#hakkinda" onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors">🎯 Vizyon & Amacımız</a>
+        <a href="#mimari" onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors">⚙️ 3 Katmanlı Mimari</a>
+        <a href="#gemini-rolu" onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors">🧠 Gemini'nin Projedeki Rolü</a>
+        <a href="#kinematik" onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors">📐 Kinematik & Matematik</a>
+        <a href="#demo" onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors">🎮 Canlı Simülatör</a>
+        <a href="#karsilastirma" onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors">📊 Karşılaştırma Tablosu</a>
+        <a href="#isaretler" onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors">📖 39 TİD Sözlüğü</a>
+        <a href="#gelistirici" onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors">👤 Tasarlayan: Arda Dostdoğru</a>
+      </div>
+      <div class="pt-2">
+        <a href="#demo" onclick="toggleMobileMenu()" class="btn-primary w-full text-center justify-center py-3">
+          <span>Canlı Simülatörü Başlat</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 2. HERO SECTION -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <section class="relative pt-12 sm:pt-20 pb-20 sm:pb-28 px-4 sm:px-6 max-w-7xl mx-auto z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      
+      <!-- Text Area -->
+      <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold">
+          <span class="status-dot"></span>
+          <span>100% Cihaz İçi 3D Kinematik + Gemini Hibrit Yapay Zeka</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+          Sessiz Dünyayı <br>
+          <span class="text-gradient">Doğal Türkçe ve Sese</span> <br>
+          Dönüştüren Akıllı Köprü.
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+          <strong class="text-white">TİD Çevirmen</strong>, işitme ve konuşma engelli bireylerin işaret dili hareketlerini standart bir akıllı telefon kamerasıyla 3D uzayda takip eden, sıfır donanım maliyetiyle el bükülme açılarını ve avuç yönelimlerini analiz edip <strong class="text-emerald-400">akıcı Türkçe cümlelere ve sesli konuşmaya</strong> dönüştüren mobil ve PC uyumlu erişilebilirlik projesidir.
+        </p>
+
+        <!-- Stats Chips -->
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-1 max-w-lg mx-auto lg:mx-0">
+          <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/5">
+            <div class="text-xl sm:text-2xl font-bold text-white mono">39+</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 font-medium">Temel TİD Hareketi</div>
+          </div>
+          <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/5">
+            <div class="text-xl sm:text-2xl font-bold text-emerald-400 mono">%96+</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 font-medium">Model Doğruluğu</div>
+          </div>
+          <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/5">
+            <div class="text-xl sm:text-2xl font-bold text-sky-400 mono">&lt;30ms</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 font-medium">Kinematik Hızı</div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+          <a href="#demo" class="btn-primary w-full sm:w-auto">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Canlı Simülatörü Başlat</span>
+          </a>
+          <a href="#kinematik" class="btn-secondary w-full sm:w-auto">
+            <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            <span>Matematiksel Modeli İncele</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Smartphone Responsive Mockup Frame -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="relative w-full max-w-[330px]">
+          <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 to-sky-500/20 rounded-[50px] blur-2xl -z-10"></div>
+          
+          <div class="phone-mockup">
+            <div class="phone-notch"><div class="phone-camera-lens"></div></div>
+
+            <!-- Virtual Mobile Screen -->
+            <div class="w-full h-full flex flex-col justify-between p-3.5 sm:p-4 pt-7 sm:pt-8 bg-gradient-to-b from-[#0c1424] via-[#080d19] to-[#060911]">
+              
+              <div class="flex items-center justify-between pb-2.5 border-b border-white/10">
+                <div class="flex items-center gap-1.5">
+                  <span class="status-dot"></span>
+                  <span class="text-[11px] font-bold text-white tracking-wide">CANLI ÇEVİRİ</span>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  Ön Kamera • 60 FPS
+                </span>
+              </div>
+
+              <!-- Canvas Viewport -->
+              <div class="relative flex-1 my-2.5 rounded-2xl overflow-hidden bg-[#070b14] border border-white/10 flex items-center justify-center">
+                <canvas id="heroHandCanvas" width="280" height="260" class="w-full h-full"></canvas>
+                
+                <div class="absolute top-2.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#0f172a]/90 backdrop-blur-md border border-emerald-500/40 shadow-lg flex items-center gap-1.5 whitespace-nowrap">
+                  <span class="text-[11px] font-bold text-emerald-400">✨ MERHABA</span>
+                  <span class="text-[9px] text-slate-400 font-mono">%97 Doğruluk</span>
+                </div>
+
+                <div class="absolute bottom-2.5 left-2.5 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-sm border border-white/10 text-[9px] text-slate-300 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span>21 Nokta 3D İzleme Aktif</span>
+                </div>
+              </div>
+
+              <!-- Translation Result Card -->
+              <div class="bg-[#111c30]/90 border border-white/10 rounded-xl sm:rounded-2xl p-3 space-y-1.5 backdrop-blur-lg shadow-xl">
+                <div class="flex items-center justify-between text-[10px]">
+                  <span class="text-emerald-400 font-semibold">🎯 Hibrit Dilbilgisi Motoru</span>
+                  <span class="text-slate-400 font-mono">TİD ➔ Türkçe</span>
+                </div>
+
+                <div class="text-[10px] text-slate-400 font-mono bg-[#080d1a] px-2 py-1 rounded-lg border border-white/5 truncate">
+                  İşaretler: [MERHABA] • [NASILSIN]
+                </div>
+
+                <div class="text-xs sm:text-sm font-bold text-white leading-snug">
+                  "Merhaba, nasılsınız?"
+                </div>
+
+                <div class="flex items-center justify-between pt-1 border-t border-white/5">
+                  <button class="text-[10px] text-emerald-400 font-medium flex items-center gap-1 py-0.5 px-2 rounded bg-emerald-500/10">
+                    🔊 Sesli Oku
+                  </button>
+                  <span class="text-[9px] text-slate-500 font-mono">TİD v2.4 Stable</span>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <div class="pt-2.5 flex items-center justify-between gap-2">
+                <button class="flex-1 py-1.5 px-2 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-semibold flex items-center justify-center gap-1">
+                  <span>▶ Başlat</span>
+                </button>
+                <button class="flex-1 py-1.5 px-2 rounded-xl bg-white/5 text-slate-300 border border-white/10 text-[11px] font-semibold flex items-center justify-center gap-1">
+                  <span>📸 Şimdi Çevir</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 3. PROJENİN AMACI & SOSYAL ETKİSİ -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <section id="hakkinda" class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-12 sm:mb-16">
+      <div class="pill-badge">
+        <span>Toplumsal Erişilebilirlik Vizyonu</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Neden Bu Projeyi <span class="text-gradient">Hayata Geçirdik?</span>
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Türkiye'de 3 milyondan fazla işitme ve konuşma engelli birey bulunmaktadır. Hastanelerde, acil durumlarda ve günlük sosyal hayatta işaret dili bilen personel eksikliği derin bir iletişim engeli oluşturmaktadır.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl relative overflow-hidden group">
+        <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Donanım Bağımlılığına Son</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Piyasadaki araştırma projeleri genellikle binlerce liralık sensörlü eldivenler gerektirir. TİD Çevirmen sıfır donanım maliyetiyle doğrudan cep telefonunda çalışır.
+        </p>
+      </div>
+
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl relative overflow-hidden group border-emerald-500/30">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Kelimeden Cümleye Anlamsal Geçiş</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Sadece tek tek kelime tahmini yapmak yetersizdir. Türkçenin eklemeli yapısına ve TİD'in konu-yorum gramerine uygun olarak kelimeleri akıcı cümlelere birleştiriyoruz.
+        </p>
+      </div>
+
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl relative overflow-hidden group">
+        <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Çift Yönlü Sesli İletişim</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          İşaret yapan kişinin anlattıklarını karşıdaki duyan kişinin kulaklarıyla dinleyebilmesi için dahili Text-to-Speech motoru ile anında hoparlörden seslendiriyoruz.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 4. 3 KATMANLI HİBRİT MİMARİ -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <section id="mimari" class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-12 sm:mb-16">
+      <div class="pill-badge">
+        <span>Yazılım Mimarisi</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Derinlemesine <span class="text-gradient">3 Katmanlı Sistem Yapısı</span>
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Gecikmesiz yerel işlem gücünü bulutun derin algılama yeteneğiyle birleştiren 3 katmanlı hibrit boru hattı:
+      </p>
+    </div>
+
+    <div class="space-y-6 sm:space-y-8">
+      
+      <!-- Layer 1 -->
+      <div class="glass-card p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-emerald-500/20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          <div class="lg:col-span-8 space-y-3 sm:space-y-4">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">1. KATMAN</span>
+              <span class="text-xs text-slate-400 font-mono">Cihaz Üzerinde (On-Device) • 60 FPS</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white">MediaPipe 3D El Kinematiği & Biyomekanik Motoru</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Kamera akışından her saniye 60 kare çekilerek her bir el için 21 eklem noktası 3 boyutlu uzayda izlenir. Kamera mesafesinden ve açı eğikliğinden bağımsız bükülme açıları (<span class="text-emerald-400 font-mono text-xs">Joint Flexion Angles</span>) ve avuç içi normal vektörü anlık hesaplanır.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1 text-xs">
+              <div class="bg-black/30 p-3 rounded-xl border border-white/5">
+                <span class="font-bold text-emerald-400 block mb-1">Hand-Drop Shield:</span>
+                İşaret bittiğinde el inerken oluşan parmak bükülme gürültüsünü hız vektörüyle eler.
+              </div>
+              <div class="bg-black/30 p-3 rounded-xl border border-white/5">
+                <span class="font-bold text-emerald-400 block mb-1">3/5 Konsensüs:</span>
+                Parazit hareketleri engellemek için son 5 karenin en az 3'ünde doğrulanan jest onaylanır.
+              </div>
+              <div class="bg-black/30 p-3 rounded-xl border border-white/5">
+                <span class="font-bold text-emerald-400 block mb-1">Çift El Koordinasyonu:</span>
+                İki elin birbirine göre uzaklığı, paralelliği ve çatı/haç teması milimetrik hesaplanır.
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-4 bg-[#090e1a] p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-white/5 space-y-2 font-mono text-xs">
+            <div class="text-slate-500">// Parametreler:</div>
+            <div class="text-slate-300">İzlenen Nokta: <span class="text-emerald-400">42 (2x21)</span></div>
+            <div class="text-slate-300">Örnekleme: <span class="text-emerald-400">16.6 ms (60 FPS)</span></div>
+            <div class="text-slate-300">Donanım: <span class="text-emerald-400">GPU / NNAPI Hızlandırılmış</span></div>
+            <div class="text-slate-300">İnternet: <span class="text-emerald-400">Gerektirmez (Çevrimdışı)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 2 -->
+      <div class="glass-card p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-sky-500/20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          <div class="lg:col-span-8 space-y-3 sm:space-y-4">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30">2. KATMAN</span>
+              <span class="text-xs text-slate-400 font-mono">Yerel Kural Tabanlı NLP • Sıfır Gecikme</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white">TİD Dilbilgisi Sentezleme Motoru (TIDGrammarEngine)</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Türk İşaret Dili konuşma diliyle aynı gramer sırasını takip etmez. Yerel kural motorumuz ardışık yapılan jestleri alıp bağlamsal gramer kurallarıyla zenginleştirerek akıcı Türkçe cümleler üretir.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1 text-xs">
+              <div class="bg-black/30 p-3 rounded-xl border border-white/5">
+                <span class="text-slate-400 block mb-1">Girdi TİD Simgeleri:</span>
+                <span class="text-sky-400 font-mono font-bold">[MERHABA] + [SEN] + [NASILSIN]</span>
+                <span class="text-slate-400 block mt-2 mb-1">Üretilen Doğal Cümle:</span>
+                <span class="text-emerald-400 font-bold">"Merhaba, nasılsınız?"</span>
+              </div>
+              <div class="bg-black/30 p-3 rounded-xl border border-white/5">
+                <span class="text-slate-400 block mb-1">Girdi TİD Simgeleri:</span>
+                <span class="text-sky-400 font-mono font-bold">[BEN] + [YEMEK] + [AÇ]</span>
+                <span class="text-slate-400 block mt-2 mb-1">Üretilen Doğal Cümle:</span>
+                <span class="text-emerald-400 font-bold">"Karnım aç, yemek yemek istiyorum."</span>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-4 bg-[#090e1a] p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-white/5 space-y-2 font-mono text-xs">
+            <div class="text-slate-500">// Dilbilgisi Kuralları:</div>
+            <div class="text-slate-300">Özne-Yüklem Uyumu: <span class="text-sky-400">Aktif</span></div>
+            <div class="text-slate-300">Zaman Çekimi: <span class="text-sky-400">Otomatik</span></div>
+            <div class="text-slate-300">Nezaket Kalıpları: <span class="text-sky-400">Dahili</span></div>
+            <div class="text-slate-300">İşlem Gecikmesi: <span class="text-sky-400">&lt; 1 ms</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 3 -->
+      <div class="glass-card p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-indigo-500/20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          <div class="lg:col-span-8 space-y-3 sm:space-y-4">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">3. KATMAN</span>
+              <span class="text-xs text-slate-400 font-mono">Bulut Hibrit Doğrulama • Multimodal Vision</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white">Google Gemini Multimodal Görsel Doğrulama & TTS</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Kullanıcı "Şimdi Çevir" butonuna bastığında kamera karesi ve yerel model tahmini Gemini görsel zekasına iletilir. Model, elin yüz ve göğüsle olan anatomik ilişkisini, mimikleri ve dudak hareketlerini derinlemesine inceler; sonuç Text-to-Speech ile hoparlörden seslendirilir.
+            </p>
+            <div class="bg-black/30 p-3 rounded-xl border border-white/5 text-xs font-mono text-slate-300">
+              <span class="text-indigo-400 font-bold block mb-1">Gizlilik Güvencesi:</span>
+              Görüntü verisi hiçbir sunucuda kaydedilmez veya saklanmaz; analiz anında JSON çıktısı oluşturulup bellekten silinir.
+            </div>
+          </div>
+          <div class="lg:col-span-4 bg-[#090e1a] p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-white/5 space-y-2 font-mono text-xs">
+            <div class="text-slate-500">// API Çıktı Şeması:</div>
+            <div class="text-slate-300">{</div>
+            <div class="text-indigo-300 pl-4">"isaret": "MERHABA",</div>
+            <div class="text-indigo-300 pl-4">"dogruluk": 97,</div>
+            <div class="text-indigo-300 pl-4">"turkce_cumle": "Merhaba!",</div>
+            <div class="text-indigo-300 pl-4">"tts_ready": true</div>
+            <div class="text-slate-300">}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 4.5. GEMINI YAPAY ZEKASI PROJEMİZDE NE İŞE YARIYOR? -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <section id="gemini-rolu" class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-12 sm:mb-16">
+      <div class="pill-badge">
+        <span>🧠 Büyük Beyin & Yüksek Hakem</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Google Gemini Yapay Zekası <br>
+        <span class="text-gradient">Projemizde Ne İşe Yarıyor?</span>
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+        Sadece el iskeletine bakan yerel modeller işaret dilini tek başına çözemez. Telefon içi motorumuz sistemin <strong class="text-emerald-400">hızlı refleksleriyse</strong>, Google Gemini projemizin <strong class="text-sky-400">akıl yürüten ve konuşan büyük beynidir</strong>.
+      </p>
+    </div>
+
+    <!-- 4 Pillars Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
+      
+      <!-- Pillar 1 -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-emerald-500/20 space-y-3">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">1. Çapraz Doğrulama</div>
+        <h3 class="text-lg sm:text-xl font-bold text-white">"İkinci Hakem" (Hata Düzeltme)</h3>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          Telefonun yerel motoru 60 FPS hızında çalışır ancak kamera eğik durduğunda veya ışık değiştiğinde yanılabilir. Kullanıcı <strong>"📸 Şimdi Çevir"</strong> butonuna dokunduğunda Gemini yüksek çözünürlüklü kareyi bir işaret dili tercümanı gibi inceler:
+        </p>
+        <div class="bg-black/30 p-3 rounded-xl border border-white/5 text-xs font-mono text-slate-300">
+          <span class="text-slate-400">// Canlı Düzeltme Örneği:</span><br>
+          Yerel Model: <span class="text-rose-400">[MERHABA]</span> (%74)<br>
+          Gemini Düzeltmesi: <span class="text-emerald-400 font-bold">[TEŞEKKÜR]</span> (%97) ➔ <em>"El çeneden öne doğru açılıyor."</em>
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-sky-500/20 space-y-3">
+        <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        </div>
+        <div class="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">2. Beden Dili & Mimik</div>
+        <h3 class="text-lg sm:text-xl font-bold text-white">Yüz Hizası ve Beden Dili (Non-Manuals)</h3>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          İşaret dilinde parmak formu tamamen aynı olan bir hareket vücudun neresinde yapıldığına göre bambaşka anlamlara gelir:
+        </p>
+        <div class="grid grid-cols-3 gap-2 text-center text-xs font-mono pt-1">
+          <div class="bg-black/30 p-2 rounded-lg border border-white/5">
+            <span class="text-sky-400 font-bold block">Alında:</span>
+            <span class="text-white">BABA</span>
+          </div>
+          <div class="bg-black/30 p-2 rounded-lg border border-white/5">
+            <span class="text-emerald-400 font-bold block">Çenede:</span>
+            <span class="text-white">ANNE</span>
+          </div>
+          <div class="bg-black/30 p-2 rounded-lg border border-white/5">
+            <span class="text-indigo-400 font-bold block">Boğazda:</span>
+            <span class="text-white">TOK (Doydum)</span>
+          </div>
+        </div>
+        <p class="text-slate-400 text-xs">
+          MediaPipe sadece parmak çizgilerini görür; Gemini ise yüzü, gözleri, ağzı ve göğsü bir bütün olarak değerlendirir.
+        </p>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-indigo-500/20 space-y-3">
+        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        </div>
+        <div class="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">3. Örtünme (Occlusion)</div>
+        <h3 class="text-lg sm:text-xl font-bold text-white">Kör Noktalar ve Örtünme Çözümü</h3>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          Kameraya doğru elinizi tuttuğunuzda arkada kalan parmaklar kameradan görünmez (bir parmak diğerini kapatır). Klasik modeller parmağı göremediğinde eli kaybeder. Gemini ise insan anatomisini bildiği için eksik açılarda bile formu doğru tamamlar.
+        </p>
+      </div>
+
+      <!-- Pillar 4 -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-teal-500/20 space-y-3">
+        <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+        </div>
+        <div class="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider">4. Linguistik Sentez</div>
+        <h3 class="text-lg sm:text-xl font-bold text-white">Robotik Kelimeleri "Akıcı Türkçe Cümleye" Çevirme</h3>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          İşaret dilinde kelimeler konuşma dili gibi dizilmez. Kullanıcı <span class="text-sky-300 font-mono">[BEN] [HASTA] [DOKTOR]</span> yaptığında karşıdaki kişiye robot gibi *"Ben hasta doktor"* demek yerine:
+        </p>
+        <div class="bg-black/30 p-3 rounded-xl border border-white/5 text-xs font-mono">
+          <span class="text-slate-400">Oluşturulan Doğal Cümle:</span><br>
+          <span class="text-emerald-400 font-bold">"Kendimi hasta hissediyorum, doktora gitmem gerekiyor."</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Task Distribution Table -->
+    <div class="glass-card rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden">
+      <div class="p-5 sm:p-6 bg-white/[0.02] border-b border-white/5">
+        <h3 class="text-base sm:text-lg font-bold text-white">Mimarideki Görev Paylaşımı (MediaPipe vs. Gemini)</h3>
+        <p class="text-slate-400 text-xs sm:text-sm">İki yapay zeka gücünün bir arada çalışma disiplini:</p>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Görev / Kriter</th>
+              <th class="text-emerald-400">Telefon İçi Motor (MediaPipe - Refleksler)</th>
+              <th class="text-sky-400">Google Gemini (Büyük Beyin)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-bold text-white">İşlem Hızı & FPS</td>
+              <td class="text-emerald-400 font-semibold">60 FPS (Anlık, 16.6 ms)</td>
+              <td class="text-slate-300">~1 - 2 Saniye (Derin Analiz)</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-white">İnternet İhtiyacı</td>
+              <td class="text-emerald-400 font-semibold">Sıfır İnternet (100% Çevrimdışı)</td>
+              <td class="text-slate-300">İnternet Bağlantısıyla</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-white">Görüş Kapsamı</td>
+              <td class="text-slate-300">Sadece 21 Eklem Koordinatı</td>
+              <td class="text-sky-400 font-semibold">Tüm İnsan Bedeni, Yüz Mimikleri ve Çevre</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-white">Projedeki Rolü</td>
+              <td class="text-emerald-400 font-semibold">Canlı takip, hız filtreleme ve anlık ön tahmin</td>
+              <td class="text-sky-400 font-semibold">Kesin doğrulama, hata düzeltme ve edebi cümle kurma</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 5. 3D KİNEMATİK & MATEMATİKSEL MODEL -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <section id="kinematik" class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-12 sm:mb-16">
+      <div class="pill-badge">
+        <span>Biyomekanik Algoritmalar</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        İşaretleri Nasıl Tanıyoruz? <span class="text-gradient">Matematiksel Model</span>
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Kameraya olan mesafe ve açı değişimlerinden etkilenmeyen 3 temel matematiksel kural:
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4">
+        <div class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">1. Açısal Bükülme (Flexion)</div>
+        <h3 class="text-lg sm:text-xl font-bold text-white">Eklem Bükülme Açısı</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Parmakların açık mı kapalı mı olduğu piksel mesafesiyle değil, 3 boyutlu eklem açıları vektörel iç çarpım formülüyle hesaplanır:
+        </p>
+        <div class="formula-box">
+          $$\theta = \arccos\left(\frac{\vec{u} \cdot \vec{v}}{\|\vec{u}\| \|\vec{v}\|}\right)$$
+          <div class="text-[11px] text-slate-400 mt-2">// $\theta < 140^\circ \implies$ Parmak Bükük</div>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4">
+        <div class="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">2. Avuç Oryantasyonu</div>
+        <h3 class="text-lg sm:text-xl font-bold text-white">Avuç İçi Normal Vektörü</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Avuç içinin kameraya mı yoksa göğse mi baktığını belirlemek için bilek ve tarak kemikleri arasındaki çapraz çarpım (Cross Product) hesaplanır:
+        </p>
+        <div class="formula-box">
+          $$\vec{N} = (\vec{P}_5 - \vec{P}_0) \times (\vec{P}_{17} - \vec{P}_0)$$
+          <div class="text-[11px] text-slate-400 mt-2">// $N_z > 0 \implies$ Avuç Kameraya Dönük</div>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4">
+        <div class="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">3. Hareket Filtresi</div>
+        <h3 class="text-lg sm:text-xl font-bold text-white">Hand-Drop Shield (İniş Kalkanı)</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          İşaret bittiğinde el aşağı inerken parmaklar bükülür. Anlık dikey hız iniş yönündeyse tampon sıfırlanarak yanlış harf eklenmesi engellenir:
+        </p>
+        <div class="formula-box">
+          $$v_y = \frac{y_t - y_{t-1}}{\Delta t}$$
+          <div class="text-[11px] text-slate-400 mt-2">// $v_y > 0.015 \implies$ Buffer Sıfırlanır</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 6. İNTERAKTİF CANLI DEMO & TİD SİMÜLATÖRÜ -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <section id="demo" class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
+    
+    <div class="glass-card p-6 sm:p-12 rounded-3xl border border-emerald-500/30 relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        
+        <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+          <div class="pill-badge">
+            <span>🎮 Tarayıcıda Canlı Deneyim (Mobil & PC)</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            TİD Çevirmen <span class="text-gradient">İnteraktif Simülatörü</span>
+          </h2>
+
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Aşağıdaki butonlara tıklayarak işaretleri yapay zekaya gönderin; modelin el iskeletini nasıl güncellediğini ve <strong class="text-emerald-400">TIDGrammarEngine</strong>'in işaretleri nasıl Türkçe cümleye dönüştürdüğünü anlık izleyin:
+          </p>
+
+          <div class="space-y-2.5">
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">İşaret Seçin:</span>
+            
+            <div class="flex flex-wrap gap-2">
+              <button onclick="simulateSign('MERHABA')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                👋 MERHABA
+              </button>
+              <button onclick="simulateSign('NASILSIN')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                ❓ NASILSIN
+              </button>
+              <button onclick="simulateSign('BEN')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                ☝️ BEN
+              </button>
+              <button onclick="simulateSign('İYİ')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                👍 İYİ
+              </button>
+              <button onclick="simulateSign('TEŞEKKÜR')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                🙏 TEŞEKKÜR
+              </button>
+              <button onclick="simulateSign('EV')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                🏠 EV
+              </button>
+              <button onclick="simulateSign('SU')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                💧 SU
+              </button>
+              <button onclick="simulateSign('DOKTOR')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                🩺 DOKTOR
+              </button>
+              <button onclick="simulateSign('YARDIM')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                🤝 YARDIM
+              </button>
+              <button onclick="simulateSign('ALKIŞ')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-500/40 text-xs sm:text-sm text-slate-200 font-medium transition-all active:scale-95">
+                👏 ALKIŞ
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 pt-2">
+            <button onclick="speakCurrentSentence()" class="px-4 sm:px-5 py-2.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-semibold hover:bg-emerald-500/30 transition-all flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+              <span>Seslendir (TTS)</span>
+            </button>
+            <button onclick="clearDemoSentence()" class="px-4 sm:px-5 py-2.5 rounded-xl bg-white/5 text-slate-400 hover:text-white border border-white/10 text-xs sm:text-sm font-semibold transition-all">
+              Sıfırla
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Simulator Viewport -->
+        <div class="lg:col-span-5">
+          <div class="bg-[#0b1220] rounded-2xl border border-white/10 p-4 sm:p-5 shadow-2xl space-y-3 sm:space-y-4">
+            
+            <div class="relative h-52 sm:h-60 rounded-xl bg-[#060a12] border border-white/5 overflow-hidden flex items-center justify-center">
+              <canvas id="simulatorCanvas" width="360" height="240" class="w-full h-full"></canvas>
+
+              <div id="simPill" class="absolute top-2.5 left-3 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-emerald-500/40 text-[11px] sm:text-xs font-bold text-emerald-300 flex items-center gap-1.5 shadow-md">
+                <span class="status-dot"></span>
+                <span id="simSignText">Kameraya işaret yapın...</span>
+              </div>
+
+              <div class="absolute bottom-2.5 right-3 px-2 py-0.5 rounded bg-black/60 border border-white/10 text-[9px] sm:text-[10px] font-mono text-slate-400">
+                MediaPipe 3D Kinematik Aktif
+              </div>
+            </div>
+
+            <div class="bg-[#0f172a] p-3 sm:p-4 rounded-xl border border-white/5 space-y-1.5">
+              <div class="flex items-center justify-between text-[11px] sm:text-xs">
+                <span class="text-slate-400 font-medium">Algılanan TİD Simgeleri:</span>
+                <span id="simConfidenceBadge" class="text-emerald-400 font-mono">%0</span>
+              </div>
+              
+              <div id="simTokensText" class="text-[11px] sm:text-xs font-mono text-emerald-300 bg-black/30 p-2 rounded border border-white/5 min-h-[32px] flex items-center truncate">
+                İşaretler: (Henüz işaret yapılmadı)
+              </div>
+
+              <div class="text-[11px] text-slate-400 font-medium pt-1">Oluşturulan Doğal Türkçe Cümle:</div>
+              <div id="simSentenceText" class="text-sm sm:text-base font-bold text-white min-h-[40px] flex items-center bg-[#070b14] px-3 rounded-lg border border-emerald-500/20">
+                "Kamera önünde el hareketi yapın..."
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 7. KARŞILAŞTIRMA TABLOSU (MOBİL KAYDIRILABİLİR) -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <section id="karsilastirma" class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-12 sm:mb-16">
+      <div class="pill-badge">
+        <span>Teknik Karşılaştırma</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        TİD Çevirmen vs. <span class="text-gradient">Diğer Yaklaşımlar</span>
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Mobil cihazlar üzerinde çalışan çözümümüz ile alternatif yaklaşımların teknik farkları:
+      </p>
+    </div>
+
+    <div class="glass-card rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Özellik / Kriter</th>
+              <th class="text-emerald-400 font-extrabold">TİD Çevirmen (Bizim Proje)</th>
+              <th>Sensörlü Eldivenler</th>
+              <th>Klasik Bulut Sistemleri</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-bold text-white">Ek Donanım İhtiyacı</td>
+              <td class="text-emerald-400 font-semibold">Sıfır (Sadece Telefon)</td>
+              <td class="text-rose-400">Pahalı Sensörlü Eldivenler</td>
+              <td class="text-slate-300">Harici Kamera / PC</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-white">Maliyet</td>
+              <td class="text-emerald-400 font-semibold">0 ₺ (Ücretsiz Erişilebilirlik)</td>
+              <td class="text-rose-400">10.000 ₺ - 40.000 ₺</td>
+              <td class="text-amber-400">Yüksek Sunucu Maliyeti</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-white">İnternetsiz (Offline) Çalışma</td>
+              <td class="text-emerald-400 font-semibold">Evet (100% Yerel Kinematik)</td>
+              <td class="text-slate-300">Kısmen</td>
+              <td class="text-rose-400">Hayır (İnternet Şart)</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-white">Tepki Gecikmesi</td>
+              <td class="text-emerald-400 font-semibold">&lt; 30 ms (Anlık)</td>
+              <td class="text-emerald-400 font-semibold">&lt; 20 ms</td>
+              <td class="text-rose-400">500 ms - 2000 ms</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-white">Çift El Koordinasyonu</td>
+              <td class="text-emerald-400 font-semibold">Evet (3D Bağıl Vektörler)</td>
+              <td class="text-amber-400">Sadece Parmaklar</td>
+              <td class="text-slate-300">Piksel Tabanlı (Kararsız)</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-white">Doğal Dilbilgisi Sentezi</td>
+              <td class="text-emerald-400 font-semibold">Dahili TIDGrammarEngine</td>
+              <td class="text-rose-400">Sadece Tekil Kelimeler</td>
+              <td class="text-slate-300">Kısmi</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-white">Sesli Konuşma (TTS)</td>
+              <td class="text-emerald-400 font-semibold">Tek Tuşla / Otomatik</td>
+              <td class="text-rose-400">Yok</td>
+              <td class="text-slate-300">İsteğe Bağlı</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 8. DOĞRULANMIŞ TİD SÖZLÜĞÜ (39 İŞARET) -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <section id="isaretler" class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-10 sm:mb-14">
+      <div class="pill-badge">
+        <span>Doğrulanmış TİD Taksonomisi</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Sistemdeki <span class="text-gradient">39 Temel TİD Hareketi</span>
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Milli Eğitim Bakanlığı standartlarına uygun modellenmiş hareketler:
+      </p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+      <button onclick="filterCatalog('all')" id="tabAll" class="px-4 sm:px-5 py-2 rounded-xl bg-emerald-500 text-white font-semibold text-xs">Tümü (39)</button>
+      <button onclick="filterCatalog('single')" id="tabSingle" class="px-4 sm:px-5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-semibold text-xs border border-white/10">Tek El (26)</button>
+      <button onclick="filterCatalog('dual')" id="tabDual" class="px-4 sm:px-5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-semibold text-xs border border-white/10">Çift El (13)</button>
+    </div>
+
+    <!-- Responsive Catalog Grid -->
+    <div id="catalogGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4"></div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 9. GELİŞTİRİCİ & TASARLAYAN (ARDA DOSTDOĞRU) -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <section id="gelistirici" class="py-20 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
+    
+    <div class="glass-card p-6 sm:p-12 md:p-14 rounded-3xl border border-emerald-500/40 relative overflow-hidden">
+      <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -right-20 -top-20 w-80 h-80 bg-sky-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        
+        <!-- Profile Column -->
+        <div class="lg:col-span-5 flex flex-col items-center text-center lg:items-start lg:text-left space-y-4 sm:space-y-5">
+          <div class="relative group">
+            <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-gradient-to-tr from-emerald-500 via-teal-400 to-sky-500 p-[3px] shadow-2xl shadow-emerald-500/30">
+              <div class="w-full h-full bg-[#0a101d] rounded-[21px] flex items-center justify-center overflow-hidden">
+                <div class="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-emerald-400 to-sky-400 text-transparent bg-clip-text">
+                  AD
+                </div>
+              </div>
+            </div>
+            <div class="absolute -bottom-2 -right-2 px-2.5 py-0.5 rounded-full bg-emerald-500 text-black text-[9px] sm:text-[10px] font-extrabold tracking-wider uppercase shadow-md">
+              CREATOR
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Arda Dostdoğru</h2>
+            <p class="text-emerald-400 font-semibold text-xs sm:text-sm">Yazılım & Yapay Zeka Geliştiricisi</p>
+            <p class="text-slate-400 text-xs mt-1 font-mono">Mobile Developer • AI Researcher • Accessibility</p>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>Erişilebilirlik ve İleri Yapay Zeka Teknolojileri</span>
+          </div>
+        </div>
+
+        <!-- Bio and Social Links -->
+        <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+          <div class="space-y-2.5 text-center lg:text-left">
+            <h3 class="text-lg sm:text-xl font-bold text-white">Projenin Mimarı & Vizyonu</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Bu proje, işitme ve konuşma engelli bireylerin toplumda engelsiz ve eşit iletişim kurabilmesi amacıyla <strong>Arda Dostdoğru</strong> tarafından baştan sona tasarlanmış, matematiksel modelleri kurgulanmış ve kodlanmıştır.
+            </p>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Yapay zeka ve bilgisayarlı görüyü sadece teoride bırakmayıp, gerçek insanların günlük hayatına dokunan hafif, ergonomik ve pratik mobil çözümlere dönüştürmeyi hedeflemektedir.
+            </p>
+          </div>
+
+          <!-- Social Responsive Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            
+            <a href="https://instagram.com/dostdogru_arda" target="_blank" rel="noopener noreferrer" class="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-gradient-to-r hover:from-pink-500/20 hover:to-rose-500/20 border border-white/10 hover:border-pink-500/40 transition-all flex flex-col justify-between">
+              <div class="flex items-center justify-between mb-2">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span class="text-[10px] text-slate-500 font-mono">Kişisel</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">@dostdogru_arda</div>
+                <div class="text-[11px] text-slate-400">Instagram Profil</div>
+              </div>
+            </a>
+
+            <a href="https://instagram.com/coder_arda" target="_blank" rel="noopener noreferrer" class="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-gradient-to-r hover:from-emerald-500/20 hover:to-teal-500/20 border border-white/10 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+              <div class="flex items-center justify-between mb-2">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span class="text-[10px] text-slate-500 font-mono">Yazılım</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">@coder_arda</div>
+                <div class="text-[11px] text-slate-400">Kodlama & Projeler</div>
+              </div>
+            </a>
+
+            <a href="https://coderrarda.github.io/Bio/" target="_blank" rel="noopener noreferrer" class="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-gradient-to-r hover:from-sky-500/20 hover:to-indigo-500/20 border border-white/10 hover:border-sky-500/40 transition-all flex flex-col justify-between">
+              <div class="flex items-center justify-between mb-2">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span class="text-[10px] text-slate-500 font-mono">Portfolyo</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">coderrarda.github.io</div>
+                <div class="text-[11px] text-slate-400">Biyografi & Web Sitesi</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 10. FOOTER -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <footer class="border-t border-white/10 bg-[#060911] py-10 sm:py-12 px-4 sm:px-6 z-10 relative">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg>
+        </div>
+        <div>
+          <div class="text-sm font-bold text-white">TİD Çevirmen Projesi</div>
+          <div class="text-xs text-slate-500">© 2026 Arda Dostdoğru. Tüm hakları saklıdır. Mobil & PC Uyumlu.</div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs text-slate-400">
+        <a href="#hakkinda" class="hover:text-emerald-400 transition-colors">Hakkında</a>
+        <a href="#mimari" class="hover:text-emerald-400 transition-colors">Mimari</a>
+        <a href="#kinematik" class="hover:text-emerald-400 transition-colors">Kinematik</a>
+        <a href="#demo" class="hover:text-emerald-400 transition-colors">Simülatör</a>
+        <a href="https://coderrarda.github.io/Bio/" target="_blank" class="hover:text-emerald-400 transition-colors">Arda Dostdoğru</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- 11. JAVASCRIPT: CANLI SİMÜLATÖR & RESPONSIVE CANVAS -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <script>
+    // Mobil Menü Aç/Kapat
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.classList.contains('hidden-drawer')) {
+        menu.classList.remove('hidden-drawer');
+        menu.classList.add('open-drawer');
+      } else {
+        menu.classList.remove('open-drawer');
+        menu.classList.add('hidden-drawer');
+      }
+    }
+
+    // 39 Doğrulanmış TİD İşareti
+    const SIGNS_DATA = [
+      { id: "MERHABA", type: "single", emoji: "👋", name: "MERHABA", desc: "Açık el şakak hizasında dik tutulur." },
+      { id: "GÜLE GÜLE", type: "single", emoji: "👋", name: "GÜLE GÜLE", desc: "Açık el baş hizasında sağa-sola sallanır." },
+      { id: "TAMAM", type: "single", emoji: "👌", name: "TAMAM", desc: "Baş ve işaret parmağı birleşik OK formu." },
+      { id: "İYİ", type: "single", emoji: "👍", name: "İYİ", desc: "Başparmak yukarı kalkık, diğer 4 parmak kapalı." },
+      { id: "KÖTÜ", type: "single", emoji: "👎", name: "KÖTÜ", desc: "Başparmak aşağı dönük, diğer 4 parmak kapalı." },
+      { id: "ZAFER", type: "single", emoji: "✌️", name: "ZAFER", desc: "İşaret ve orta parmak açık V formu." },
+      { id: "SEVMEK", type: "single", emoji: "🤟", name: "SEVMEK", desc: "Baş, işaret ve serçe parmak açık ILY formu." },
+      { id: "EVET", type: "single", emoji: "✊", name: "EVET", desc: "Yumruk aşağı doğru kafa sallar gibi hareket eder." },
+      { id: "HAYIR", type: "single", emoji: "☝️", name: "HAYIR", desc: "İşaret parmağı dik tutulup sağa-sola sallanır." },
+      { id: "DUR", type: "single", emoji: "✋", name: "DUR", desc: "Açık avuç göğüs önünde kameraya dönük sabit durur." },
+      { id: "BEN", type: "single", emoji: "☝️", name: "BEN", desc: "İşaret parmağı kişinin kendi göğsünü gösterir." },
+      { id: "SEN", type: "single", emoji: "👉", name: "SEN", desc: "İşaret parmağı düz kamerayı gösterir." },
+      { id: "SUS", type: "single", emoji: "🤫", name: "SUS", desc: "İşaret parmağı dudak önünde dikey durur." },
+      { id: "DİKKAT", type: "single", emoji: "🔫", name: "DİKKAT", desc: "Baş ve işaret parmağı 90 derece dik L formu." },
+      { id: "ÇAY", type: "single", emoji: "☕", name: "ÇAY", desc: "Sadece serçe parmak havada açık fincan tutuşu." },
+      { id: "SU", type: "single", emoji: "💧", name: "SU", desc: "Başparmak ağza dokunur veya C bardağı formundadır." },
+      { id: "YEMEK", type: "single", emoji: "🍽️", name: "YEMEK", desc: "Parmak uçları birleşik ağız hizasında tutulur." },
+      { id: "PARA", type: "single", emoji: "💰", name: "PARA", desc: "Parmak uçları birleşik karın hizasında ovuşturulur." },
+      { id: "AÇ", type: "single", emoji: "🍽️", name: "AÇ", desc: "Açık el karın / mide hizasında tutulur." },
+      { id: "HASTA", type: "single", emoji: "🤒", name: "HASTA", desc: "Açık el alında ateş ölçme pozisyonunda tutulur." },
+      { id: "BABA", type: "single", emoji: "👨", name: "BABA", desc: "Başparmak alın / şakak hizasında açık tutulur." },
+      { id: "ANNE", type: "single", emoji: "👩", name: "ANNE", desc: "El yanak veya çene hizasında tutulur." },
+      { id: "POLİS", type: "single", emoji: "👮", name: "POLİS", desc: "El C formunda alın siperliğinde tutulur." },
+      { id: "ÖZÜR", type: "single", emoji: "🙇", name: "ÖZÜR", desc: "Yumruk göğüs hizasında dairesel ovulur." },
+      { id: "TEŞEKKÜR", type: "single", emoji: "🙏", name: "TEŞEKKÜR", desc: "Açık el çeneden öne doğru uzatılır." },
+      { id: "LÜTFEN", type: "single", emoji: "🙏", name: "LÜTFEN", desc: "Açık avuç göğüs üzerinde sabit tutulur." },
+
+      // Çift El
+      { id: "EV", type: "dual", emoji: "🏠", name: "EV", desc: "İki elin parmak uçları tepede çatı gibi birleşir." },
+      { id: "AİLE", type: "dual", emoji: "👨‍👩‍👧", name: "AİLE", desc: "İki el OK (👌) formunda yan yana birleşir." },
+      { id: "ARKADAŞ", type: "dual", emoji: "🤝", name: "ARKADAŞ", desc: "İki yumruk göğüs önünde birbirine temas eder." },
+      { id: "KARDEŞ", type: "dual", emoji: "👬", name: "KARDEŞ", desc: "İki işaret parmağı yatay olarak yan yana değer." },
+      { id: "HASTANE", type: "dual", emoji: "🏥", name: "HASTANE", desc: "İki işaret parmağı artı (+) şeklinde kesişir." },
+      { id: "DOKTOR", type: "dual", emoji: "🩺", name: "DOKTOR", desc: "İki parmak diğer kolun bileğindeki nabza dokunur." },
+      { id: "SAAT", type: "dual", emoji: "⌚", name: "SAAT", desc: "İşaret parmağı diğer bileğin üstüne dokunur." },
+      { id: "OKUL", type: "dual", emoji: "📖", name: "OKUL", desc: "İki açık el kitap gibi yan yana açılır." },
+      { id: "YARDIM", type: "dual", emoji: "🤝", name: "YARDIM", desc: "Bir el diğer elin altına destek verir." },
+      { id: "BERABER", type: "dual", emoji: "👥", name: "BERABER", desc: "İki el Zafer (✌️✌️) formunda yan yana tutulur." },
+      { id: "ALKIŞ", type: "dual", emoji: "👏", name: "ALKIŞ", desc: "İki açık el havada hafifçe sallanır." },
+      { id: "SEVGİ", type: "dual", emoji: "❤️", name: "SEVGİ", desc: "İki kol göğüste çapraz sarılma formundadır." },
+      { id: "BİLMİYORUM", type: "dual", emoji: "🤷", name: "BİLMİYORUM", desc: "İki açık avuç yukarı bakarak yanlara açılır." }
+    ];
+
+    function renderCatalog(items) {
+      const container = document.getElementById('catalogGrid');
+      container.innerHTML = '';
+      items.forEach(sign => {
+        const card = document.createElement('div');
+        card.className = "glass-card p-3 sm:p-3.5 rounded-xl sm:rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all flex flex-col justify-between cursor-pointer";
+        card.onclick = () => simulateSign(sign.id);
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-lg sm:text-xl">${sign.emoji}</span>
+              <span class="text-[9px] font-mono px-1.5 py-0.5 rounded ${sign.type === 'dual' ? 'bg-indigo-500/20 text-indigo-300' : 'bg-emerald-500/20 text-emerald-300'}">${sign.type === 'dual' ? 'ÇİFT' : 'TEK'}</span>
+            </div>
+            <div class="text-xs font-bold text-white truncate">${sign.name}</div>
+          </div>
+          <div class="text-[10px] text-slate-400 mt-1.5 line-clamp-2">${sign.desc}</div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterCatalog(filter) {
+      document.getElementById('tabAll').className = "px-4 sm:px-5 py-2 rounded-xl bg-white/5 text-slate-300 font-semibold text-xs border border-white/10";
+      document.getElementById('tabSingle').className = "px-4 sm:px-5 py-2 rounded-xl bg-white/5 text-slate-300 font-semibold text-xs border border-white/10";
+      document.getElementById('tabDual').className = "px-4 sm:px-5 py-2 rounded-xl bg-white/5 text-slate-300 font-semibold text-xs border border-white/10";
+
+      if (filter === 'all') {
+        document.getElementById('tabAll').className = "px-4 sm:px-5 py-2 rounded-xl bg-emerald-500 text-white font-semibold text-xs";
+        renderCatalog(SIGNS_DATA);
+      } else if (filter === 'single') {
+        document.getElementById('tabSingle').className = "px-4 sm:px-5 py-2 rounded-xl bg-emerald-500 text-white font-semibold text-xs";
+        renderCatalog(SIGNS_DATA.filter(s => s.type === 'single'));
+      } else if (filter === 'dual') {
+        document.getElementById('tabDual').className = "px-4 sm:px-5 py-2 rounded-xl bg-emerald-500 text-white font-semibold text-xs";
+        renderCatalog(SIGNS_DATA.filter(s => s.type === 'dual'));
+      }
+    }
+
+    renderCatalog(SIGNS_DATA);
+
+    // İnteraktif Simülatör
+    let currentTokens = [];
+
+    function simulateSign(signId) {
+      if (currentTokens[currentTokens.length - 1] !== signId) {
+        currentTokens.push(signId);
+      }
+
+      const conf = Math.floor(Math.random() * 5) + 94; // %94-%98
+      document.getElementById('simConfidenceBadge').textContent = `🎯 %${conf} Güven`;
+      document.getElementById('simSignText').textContent = `✨ ${signId} (%${conf})`;
+      document.getElementById('simTokensText').textContent = "İşaretler: " + currentTokens.map(t => `[${t}]`).join(" • ");
+
+      const sentence = synthesizeTurkish(currentTokens);
+      document.getElementById('simSentenceText').textContent = `"${sentence}"`;
+
+      drawHandSkeleton(document.getElementById('simulatorCanvas'), signId);
+    }
+
+    function clearDemoSentence() {
+      currentTokens = [];
+      document.getElementById('simConfidenceBadge').textContent = "%0";
+      document.getElementById('simSignText').textContent = "Kameraya işaret yapın...";
+      document.getElementById('simTokensText').textContent = "İşaretler: (Henüz işaret yapılmadı)";
+      document.getElementById('simSentenceText').textContent = '"Kamera önünde el hareketi yapın..."';
+      drawHandSkeleton(document.getElementById('simulatorCanvas'), 'IDLE');
+    }
+
+    function speakCurrentSentence() {
+      const text = document.getElementById('simSentenceText').textContent.replace(/"/g, '').trim();
+      if (!text || text.includes('Kamera')) return;
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'tr-TR';
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert("Tarayıcınız ses sentezini desteklemiyor: " + text);
+      }
+    }
+
+    function synthesizeTurkish(tokens) {
+      if (!tokens || tokens.length === 0) return "";
+      const set = new Set(tokens);
+
+      if (tokens.length === 1) return formatSingle(tokens[0]);
+
+      if (set.has('MERHABA') && (set.has('NASILSIN') || set.has('SEN'))) return "Merhaba, nasılsınız?";
+      if (set.has('MERHABA') && set.has('BEN') && set.has('İYİ')) return "Merhaba, ben iyiyim.";
+      if (set.has('BEN') && set.has('İYİ')) return "Ben gayet iyiyim, teşekkürler.";
+      if (set.has('BEN') && set.has('HASTA') && set.has('DOKTOR')) return "Hastayım, doktora gitmek istiyorum.";
+      if (set.has('BEN') && set.has('HASTA')) return "Ben hastayım, kendimi iyi hissetmiyorum.";
+      if (set.has('BEN') && set.has('SU')) return "Ben su içmek istiyorum.";
+      if (set.has('BEN') && set.has('YEMEK') && set.has('AÇ')) return "Karnım aç, yemek yemek istiyorum.";
+      if (set.has('YARDIM') && set.has('LÜTFEN')) return "Lütfen bana yardım eder misiniz?";
+      if (set.has('TEŞEKKÜR') && set.has('ARKADAŞ')) return "Çok teşekkür ederim arkadaşım.";
+      if (set.has('GÜLE GÜLE') && set.has('ARKADAŞ')) return "Güle güle arkadaşım, görüşmek üzere!";
+
+      return tokens.map(formatSingle).join(" ");
+    }
+
+    function formatSingle(w) {
+      switch(w) {
+        case 'MERHABA': return "Merhaba!";
+        case 'NASILSIN': return "Nasılsınız?";
+        case 'TEŞEKKÜR': return "Teşekkür ederim.";
+        case 'İYİ': return "İyiyim.";
+        case 'KÖTÜ': return "Kötüyüm.";
+        case 'TAMAM': return "Tamamdır.";
+        case 'EVET': return "Evet.";
+        case 'HAYIR': return "Hayır.";
+        case 'SU': return "Su istiyorum.";
+        case 'YEMEK': return "Yemek istiyorum.";
+        case 'DOKTOR': return "Doktora gitmem gerekiyor.";
+        case 'HASTA': return "Hastayım.";
+        case 'YARDIM': return "Yardım edin!";
+        case 'BEN': return "Ben.";
+        case 'SEN': return "Sen.";
+        case 'EV': return "Ev.";
+        case 'ALKIŞ': return "Tebrikler!";
+        case 'GÜLE GÜLE': return "Güle güle.";
+        default: return w + ".";
+      }
+    }
+
+    // Responsive Canvas Çizici
+    function drawHandSkeleton(canvas, sign) {
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.03)";
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 30) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
+      for (let y = 0; y < h; y += 30) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
+
+      const cx = w / 2, cy = h / 2 + 25;
+      const landmarks = [
+        { x: cx, y: cy + 60 },
+        { x: cx - 35, y: cy + 30 }, { x: cx - 55, y: cy + 5 }, { x: cx - 70, y: cy - 20 }, { x: cx - 80, y: cy - 45 },
+        { x: cx - 25, y: cy - 20 }, { x: cx - 30, y: cy - 55 }, { x: cx - 32, y: cy - 80 }, { x: cx - 35, y: cy - 105 },
+        { x: cx, y: cy - 25 }, { x: cx, y: cy - 65 }, { x: cx, y: cy - 90 }, { x: cx, y: cy - 118 },
+        { x: cx + 25, y: cy - 20 }, { x: cx + 28, y: cy - 55 }, { x: cx + 30, y: cy - 80 }, { x: cx + 32, y: cy - 105 },
+        { x: cx + 45, y: cy + 0 }, { x: cx + 55, y: cy - 30 }, { x: cx + 60, y: cy - 55 }, { x: cx + 65, y: cy - 75 }
+      ];
+
+      const connections = [
+        [0, 1], [1, 2], [2, 3], [3, 4],
+        [0, 5], [5, 6], [6, 7], [7, 8],
+        [0, 9], [9, 10], [10, 11], [11, 12],
+        [0, 13], [13, 14], [14, 15], [15, 16],
+        [0, 17], [17, 18], [18, 19], [19, 20],
+        [5, 9], [9, 13], [13, 17]
+      ];
+
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "rgba(16, 185, 129, 0.75)";
+      ctx.shadowColor = "#10b981";
+      ctx.shadowBlur = 8;
+
+      connections.forEach(([i, j]) => {
+        ctx.beginPath();
+        ctx.moveTo(landmarks[i].x, landmarks[i].y);
+        ctx.lineTo(landmarks[j].x, landmarks[j].y);
+        ctx.stroke();
+      });
+
+      landmarks.forEach((p, idx) => {
+        ctx.fillStyle = [4, 8, 12, 16, 20].includes(idx) ? "#38bdf8" : "#34d399";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, idx === 0 ? 6 : 4, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.shadowBlur = 0;
+    }
+
+    window.addEventListener('load', () => {
+      drawHandSkeleton(document.getElementById('heroHandCanvas'), 'MERHABA');
+      drawHandSkeleton(document.getElementById('simulatorCanvas'), 'IDLE');
+    });
+  </script>
+
+</body>
+</html>
+```
